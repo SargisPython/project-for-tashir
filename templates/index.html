@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+{% block content%}
+{%for i in tashirs%}
+<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+  <div class="w3-display-bottomleft w3-padding">
+    <img src="{{i.image.url}}" style="width:100%" height="1100" alt="">
+    <span class="w3-tag w3-xlarge">Բաց է {{i.opening}} ից միջև {{i.closing}} ը</span>
+  </div>km
+  <div class="w3-display-middle w3-center">
+    <span class="w3-text-white w3-hide-large w3-hide-medium" style="font-size:60px"><b>thin<br>CUST PIZZA</b></span>
+    <p><a href="#menu" class="w3-button w3-xxlarge w3-black">{{i.title}}</a></p>
+  </div>
+</header>
+{%endfor%}
+
+<!-- Menu Container -->
+<div class="w3-container w3-black w3-padding-64 w3-xxlarge" id="menu">
+  <div class="w3-content">
+
+    <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">Մենյու</h1>
+    <div class="w3-row w3-center w3-border w3-border-dark-grey">
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Pizza');" id="myLink">
+        <div class="w3-col s4 tablink w3-padding-large w3-hover-red">Պիցցաներ</div>
+      </a>
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Pasta');">
+        <div class="w3-col s4 tablink w3-padding-large w3-hover-red">Սալատներ</div>
+      </a>
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Starter');">
+        <div class="w3-col s4 tablink w3-padding-large w3-hover-red">Սոուսներ</div>
+      </a>
+    </div>
+
+    <div id="Pizza" class="w3-container menu w3-padding-32 w3-white">
+      {%for i in pizzas%}
+      <h1><b>{{i.tesaky}}</b><span class="w3-tag w3-grey w3-round">{{i.category}}</span><span class="w3-right w3-tag w3-dark-grey w3-round">{{i.arjeqy}}֏/հտ</span></h1>
+      <p class="w3-text-grey">{{i.baxadrutyuny}}</p>
+      <hr>
+      {%endfor%}
+    </div>
+    <div id="Pasta" class="w3-container menu w3-padding-32 w3-white">
+      {%for i in salats%}
+      <h1><b>{{i.tesaky}}</b><span class="w3-tag w3-grey w3-round">{{i.category}}</span> <span class="w3-right w3-tag w3-dark-grey w3-round">{{i.arjeqy}}֏</span></h1>
+      <p class="w3-text-grey">{{i.baxadrutyuny}}</p>
+      <hr>
+      {%endfor%}
+    </div>
+    <div id="Starter" class="w3-container menu w3-padding-32 w3-white">
+      {%for i in souss%}
+      <h1><b>{{i.tesaky}}</b><span class="w3-tag w3-grey w3-round">{{i.category}}</span> <span class="w3-right w3-tag w3-dark-grey w3-round">{{i.arjeqy}}֏</span></h1>
+      <p class="w3-text-grey">{{i.baxadrutyuny}}</p>
+      <hr>
+      {%endfor%}
+    </div><br>
+  </div>
+</div>
+
+<!-- About Container -->
+{%for i in patmutyuns%}
+<div class="w3-container w3-padding-64 w3-red w3-grayscale w3-xlarge" id="about">
+  <div class="w3-content">
+    <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">Պատմություն</h1>
+    <p>{{i.patmutyuny}}</p>
+    <p><strong>The Chef?</strong> {{i.shefxoharar}}<img src="{{i.imagexoharar.url}}" style="width:150px" class="w3-circle w3-right" alt="Chef"></p>
+    <img src="{{i.imagerestoran.url}}" style="width:100%" class="w3-margin-top w3-margin-bottom" alt="Restaurant">
+    <h1><b>Opening Hours</b></h1>
+
+    <div class="w3-row">
+      <div class="w3-col s6">
+        <p>erkushabti {{i.erkushabti}} </p>
+        <p>ireqshabti {{i.ereqshabti}}</p>
+        <p>choreqshabti {{i.choreqshabti}}</p>
+      </div>
+      <div class="w3-col s6">
+        <p>hingshabti {{i.hingshabti}}</p>
+        <p>urbat {{i.urbat}}</p>
+        <p>shabat {{i.shabat}}</p>
+        <p>kiraki {{i.kiraki}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+{%endfor%}
+
+
+<!-- Image of location/map -->
+<img src="/w3images/map.jpg" class="w3-image w3-greyscale" style="width:100%;" id="myMap">
+
+<!-- Contact -->
+<div class="w3-container w3-padding-64 w3-blue-grey w3-grayscale-min w3-xlarge">
+  <div class="w3-content">
+    <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">Ամրագրել Սեղան</h1>
+    <p>Գտեք մեզ ինչ-որ վայրում կամ զանգահարեք 094321410 հեռախոսահամարով</p>
+    <p><span class="w3-tag">Այո</span> Մենք առաջարկում ենք լիարժեք սպասարկում ցանկացած միջոցառման համար՝ մեծ թե փոքր: Մենք հասկանում ենք ձեր կարիքները և կհոգանք սննդամթերքը, որպեսզի բավարարի դրանցից ամենամեծ չափանիշները՝ և՛ տեսքը, և՛ համը:</p>
+    <p class="w3-xxlarge"><strong>Ամրագրեք սեղան,</strong> խնդրեք այսօրվա հատուկը կամ պարզապես ուղարկեք մեզ հաղորդագրություն:</p>
+    <form method="post" enctype="multipart/form-data"  action="{% url 'add_contact' %}" target="">
+      {% csrf_token %}
+      {{form.as_p}}
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Անուն" required name="name"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="number" placeholder="Քանի մարդու համար" required name="people"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="datetime-local"  required name="date"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Գրեք ձեր համարը(094321410)" required name="number"></p>
+    <button class="btn btn-primary" type="submit">Պատվիրել...</button>
+
+
+    </form>
+  </div>
+</div>
+
+{% endblock content%}
+
